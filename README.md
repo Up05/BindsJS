@@ -40,7 +40,7 @@ new BindFxn(function(){ console.log("Yea!") })
 ```
 
 ## Using the library
-*Put this in your .html file's <head> or <body> tags (either should work, not sure).*
+*Put this in your .html file's \<head\> or \<body\> tags (either should work, not sure).*
 
 <script src="https://raw.githubusercontent.com/Up05/BindsJS/main/binds.js"></script>
 
