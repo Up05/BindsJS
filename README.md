@@ -44,8 +44,8 @@ new BindFxn(function(){ console.log("Yea!") })
 
 <script src="https://raw.githubusercontent.com/Up05/BindsJS/main/binds.js"></script>
 
-# TODO
+#### TODO
 
-Make a website for this thingy.
+- Make a website for this thingy.
 
 
