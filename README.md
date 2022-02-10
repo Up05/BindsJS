@@ -1,6 +1,7 @@
 # BindsJS
 A keyboard shortcut library for javascript.
 
+https://raw.githubusercontent.com/Up05/BindsJS/main/binds.js
 ---
 
 # Guide 
@@ -37,5 +38,14 @@ new BindFxn(function(){ console.log("Yea!") })
   .preventDefault(true)
   .logic(myFavoriteElement == document.activeElement);
 ```
+
+## Using the library
+*Put this in your .html file's <head> or <body> tags (either should work, not sure).*
+
+<script src="https://raw.githubusercontent.com/Up05/BindsJS/main/binds.js"></script>
+
+# TODO
+
+Make a website for this thingy.
 
 
