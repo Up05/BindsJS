@@ -179,7 +179,8 @@ document.addEventListener('keydown', function(e){ //                   onkeydown
     if(!BindManager.keys.includes(e.key)) BindManager.keys.push(e.key)
 
     for(const bind of BindManager.binds){
-        if(document.activeElement == "textarea" || document.activeElement == "input" && !bind.ignoreInputs) continue
+        const ae = document.activeElement.tagName
+        if(ae == "TEXTAREA" || ae == "INPUT" && !bind.ignoreInputs) continue
 
         if(bind.logic && !bind.logic.every((val) => val)) continue;
 
