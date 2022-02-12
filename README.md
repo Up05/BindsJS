@@ -6,6 +6,14 @@ A keyboard shortcut library for javascript.
 
 # Guide 
 
+## Using the library
+
+You can download the library from releases (middle right)  
+Put it in your your projects folder and link it in your index.html file  
+```html
+<script src="path/to/binds.js"></script>
+```
+
 ## Creating binds
 
 ```js
@@ -48,6 +56,6 @@ new BindFxn(function(){ console.log("Yea!") })
 
 #### TODO
 
-- Make a website for this thingy.
+- Make a website for this thingy. **Nevermind, i forgot a website needed css**, I can make a cli for this i guess, but github is GOOD ENOUGH!
 
 
