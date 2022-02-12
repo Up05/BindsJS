@@ -1,5 +1,5 @@
 # BindsJS
-A keyboard shortcut library for javascript.
+A **keyboard** shortcut library for javascript.
 
 
 ---
@@ -8,8 +8,8 @@ A keyboard shortcut library for javascript.
 
 ## Using the library
 
-You can download the library from releases (middle right)  
-Put it in your your projects folder and link it in your index.html file  
+You can download the library from releases (middle right).  
+Put it in your your projects folder and link it in your index.html file.  
 ```html
 <script src="path/to/binds.js"></script>
 ```
