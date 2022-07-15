@@ -4,7 +4,7 @@
  * A lot of these also match their string form: {Alt: "Alt", ScollLock: "ScrollLock" ... }.  
  * This object is also frozen, so be sure to unfreeze it if you'd like to add more!  
  */
-const Keys = {
+ const Keys = {
     Alt: "Alt",
     AltGr: "AltGraph",
     CapsLock: "CapsLock",
@@ -165,7 +165,8 @@ function __Binds_execute(bind, e){
         bind.fxn()
     }
 
-    if(bind._preventDefault) e.preventDefault()
+    if(bind._preventDefault) e.preventDefault(true)
+
 }
 
 document.addEventListener('keyup', function (e){
@@ -179,10 +180,10 @@ document.addEventListener('keydown', function(e){ //                   onkeydown
     if(!BindManager.keys.includes(e.key)) BindManager.keys.push(e.key)
 
     for(const bind of BindManager.binds){
-        const ae = document.activeElement.tagName
-        if(ae == "TEXTAREA" || ae == "INPUT" && !bind.ignoreInputs) continue
-
-        if(bind.logic && !bind.logic.every((val) => val)) continue;
+        const ae = document.activeElement.tagName.toLowerCase();
+        if((ae == "textarea" || ae == "input" || document.activeElement.getAttribute("contenteditable")) && !bind._ignoreInputs) continue
+        // sometimes... you just wish you were coding in byte code... because, some hells, are indeed worse, than others...
+        // if(bind.logic && !bind.logic.every((val) => val)) continue;
 
         if(bind.keyCombos.length != 0)
         for(let keyCombo of bind.keyCombos){
@@ -209,14 +210,17 @@ class BindParent {
         this.keyBinds  = [];
         /** Array for key bind combinations in a certain bind. @Type {Array @Type {String}}*/
         this.keyCombos = [];
-        /** Array for bool expressions in a certain bind. @Type {Boolean} */
+        /** Array for bool expressions in a certain bind. @Type {Boolean} @deprecated*/
         this.logic = []
 
         this.name = "unnamed"
         this.description = ""
 
+        /** @private */
         this._forceCombinationOrder = false;
+        /** @private */
         this._preventDefault = false;
+        /** @private */
         this._ignoreInputs = false;
 
         BindManager.binds.push(this)
@@ -226,6 +230,8 @@ class BindParent {
      * @param {Boolean} boolean
      * @return {this}
      * @example myBind.addLogic(activeElement !== 'button')
+     * @private
+     * @deprecated
     */
     addLogic(boolean){
         this.logic.push(boolean)
@@ -291,7 +297,7 @@ class BindParent {
      * @example myBind.preventDefault(true) // false by default
     */
     preventDefault(boolean){
-        this.preventDefault = boolean
+        this._preventDefault = boolean
         return this;
     }
     /** 
@@ -328,6 +334,7 @@ class BindElt extends BindParent { // TODO class BindFxn { ... }     ..?
 
         this.focus = false;
         this.use   = true;
+        /** @private */
         this._checkHidden = false;
 
     }
