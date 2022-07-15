@@ -44,7 +44,6 @@ new BindFxn(function(){ console.log("Yea!") })
   .setName("Yeah!")
   .setDescription("d for Yea!")
   .preventDefault(true)
-  .logic(myFavoriteElement == document.activeElement);
 ```
 
 <!-- ## Using the library
